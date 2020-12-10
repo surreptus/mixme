@@ -1,17 +1,50 @@
 import Head from 'next/head'
+import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
+const client = new ApolloClient({
+  uri: 'https://graphql.contentful.com/content/v1/spaces/aldu54hpd72j',
+  cache: new InMemoryCache(),
+  headers: {
+    'Authorization': 'Bearer 8K4htsV045PUGte1GMjM2NstYN5CZn8SyMBNZfakhDo'
+  }
+});
+
+export async function getStaticProps () {
+  const { data }= await client.query({
+    query: gql`
+    query GetDrinks {
+  drinkCollection(limit:20) {
+    total,
+    items {
+      name
+    }
+  }
+}`
+  }) as any
+
+  return {
+    props: { drinks: data.drinkCollection.items }
+  }
+}
+
+interface Props {
+  drinks: any[];
+}
+
+export default function Home ({ drinks }: Props) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Mixme - Home</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
         <h1 className={styles.title}>
           Test
+
+          {drinks.map((drink: any) => drink.name)}
         </h1>
 
         <p className={styles.description}>
