@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
+import Header from 'components/Header'
 
 const client = new ApolloClient({
   uri: 'https://graphql.contentful.com/content/v1/spaces/aldu54hpd72j',
@@ -38,6 +39,8 @@ export default function Home ({ drinks }: Props) {
         <title>Mixme - Home</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <Header />
 
       <main>
         <h1>

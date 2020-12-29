@@ -1,6 +1,9 @@
 import { extendTheme } from '@chakra-ui/react'
 
 export default extendTheme({
+  config: {
+    initialColorMode: 'dark'
+  },
   styles: {
     global: {
       '*': {
@@ -15,9 +18,6 @@ export default extendTheme({
         color: 'inherit',
         textDecoration: 'none'
       },
-      "html, body": {
-        backgroundColor: '#000'
-      }
     },
   },
   colors: {
