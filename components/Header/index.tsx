@@ -9,7 +9,7 @@ export default function Header () {
           mixme
         </GridItem>
 
-        <GridItem colSpan="3">
+        <GridItem colSpan={3}>
           <Input placeholder='Start searching for a drink' />
         </GridItem>
 
