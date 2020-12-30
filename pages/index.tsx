@@ -1,6 +1,7 @@
 import Head from 'next/head'
-import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 import Header from 'components/Header'
+import List from 'components/List'
+import { gql, ApolloClient, InMemoryCache } from '@apollo/client';
 
 const client = new ApolloClient({
   uri: 'https://graphql.contentful.com/content/v1/spaces/aldu54hpd72j',
@@ -12,16 +13,24 @@ const client = new ApolloClient({
 
 export async function getStaticProps () {
   const { data }= await client.query({
-    query: gql`
-    query GetDrinks {
-  drinkCollection(limit:20) {
-    total,
-    items {
-      name
-    }
-  }
-}`
-  }) as any
+    query: gql`query GetDrinks {
+      drinkCollection(limit:20) {
+        total,
+        items {
+          sys {
+            id
+          },
+          name,
+          caption,
+          cover {
+            url,
+            title,
+            description
+          }
+        }
+      }
+    }`
+  })
 
   return {
     props: { drinks: data.drinkCollection.items }
@@ -47,7 +56,7 @@ export default function Home ({ drinks }: Props) {
           Test
         </h1>
 
-        {drinks.map((drink: any) => drink.name)}
+        <List items={drinks} />
       </main>
 
       <footer>
