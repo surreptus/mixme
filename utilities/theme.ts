@@ -2,7 +2,11 @@ import { extendTheme } from '@chakra-ui/react'
 
 export default extendTheme({
   config: {
-    initialColorMode: 'dark'
+    initialColorMode: 'dark',
+    useSystemColorMode: false
+  },
+  fonts: {
+    heading: 'Libre Baskerville, serif'
   },
   styles: {
     global: {

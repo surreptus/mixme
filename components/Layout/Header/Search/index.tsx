@@ -32,8 +32,6 @@ export default function Search () {
     getRecipes()
   }, [query])
 
-  console.log(query, loading, data)
-
   return (
     <div>
       <Input

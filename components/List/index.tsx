@@ -13,7 +13,7 @@ export default function List ({ items }: Props) {
     {items.map((drink) => (
       <Link key={drink.sys.id} href={`/recipes/${encodeURIComponent(drink.sys.id)}`}>
         <WrapItem w='50%'>
-            <Image objectFit='cover' alt={drink.name} src={drink.cover.url} boxSize='lg' />
+          <Image objectFit='cover' alt={drink.name} src={drink.cover.url} boxSize='lg' />
 
           <Text>
             {drink.name}
