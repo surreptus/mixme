@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Layout from 'components/Layout'
 import List from 'components/List'
 import { gql } from '@apollo/client';
+import { Heading } from '@chakra-ui/react'
 import client from 'utilities/apollo'
 
 export async function getStaticProps () {
@@ -43,11 +44,9 @@ export default function Home ({ drinks }: Props) {
       </Head>
 
       <main>
-        <h1>
-          Test
-        </h1>
-
-        hello
+        <Heading>
+          Latest Drinks
+        </Heading>
 
         <List items={drinks} />
       </main>

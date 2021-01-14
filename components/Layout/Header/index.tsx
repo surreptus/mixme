@@ -15,11 +15,7 @@ export default function Header () {
           <Search />
         </GridItem>
 
-        <GridItem>
-          <Link>
-            About
-          </Link>
-        </GridItem>
+        <GridItem />
       </Grid>
     </header>
   )
