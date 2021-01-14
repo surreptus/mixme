@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, GridItem } from '@chakra-ui/react'
+import { Link, Grid, GridItem } from '@chakra-ui/react'
 
 import Search from './Search'
 
@@ -8,7 +8,7 @@ export default function Header () {
     <header>
       <Grid p='2' gap='2' templateColumns="repeat(5, 1fr)">
         <GridItem>
-          mixme
+          <Link href='/'>mixme</Link>
         </GridItem>
 
         <GridItem colSpan={3}>
