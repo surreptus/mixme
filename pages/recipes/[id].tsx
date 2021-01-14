@@ -1,9 +1,26 @@
 import React from 'react'
 import Head from 'next/head'
 import Layout from 'components/Layout'
-import { Flex, Box, AspectRatio, Text, Image } from '@chakra-ui/react'
-import { gql } from '@apollo/client';
-import client from 'utilities/apollo'
+import {
+  AspectRatio,
+  Box,
+  Grid,
+  GridItem,
+  Heading,
+  Image,
+  ListItem,
+  Text,
+  UnorderedList,
+} from '@chakra-ui/react'
+import { gql, ApolloClient, InMemoryCache } from '@apollo/client';
+
+const client = new ApolloClient({
+  uri: 'https://graphql.contentful.com/content/v1/spaces/aldu54hpd72j',
+  cache: new InMemoryCache(),
+  headers: {
+    'Authorization': 'Bearer 8K4htsV045PUGte1GMjM2NstYN5CZn8SyMBNZfakhDo'
+  }
+});
 
 interface Props {
   drink: any
@@ -46,7 +63,6 @@ export async function getStaticProps (context: any) {
         }
         ingredients
         description
-
       }
     }`,
     variables: {
@@ -75,36 +91,36 @@ export default function Show ({ drink }: Props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Flex>
-        <Box flex='1'>
-          <AspectRatio maxW='20rem' ratio={4 / 3}>
-            <Image src={drink.cover.url} />
-          </AspectRatio>
+      <Grid my={5} templateColumns={"repeat(2, 1fr)"} gap={6}>
+        <GridItem colSpan={1}>
+          <Box>
+            <AspectRatio width={'100%'} ratio={4 / 3}>
+              <Image objectFit={'cover'} src={drink.cover.url} />
+            </AspectRatio>
+            <Box my={3}>
+              <Heading size={'2xl'} mb={2}>{drink.name}</Heading>
+              <Text>{drink.caption}</Text>
+            </Box>
+          </Box>
+        </GridItem>
 
-          <Text>
-            {drink.name}
-          </Text>
+        <GridItem colSpan={1}>
+          <Text>{drink.description}</Text>
 
-          <Text>
-            {drink.caption}
-          </Text>
+          <Box my={3}>
+            <Heading size={'lg'} mb={2}>Ingredients</Heading>
+            <UnorderedList>
+              {drink.ingredients.map(ingredient => (
+                <ListItem>{ingredient}</ListItem>
+              ))}
+            </UnorderedList>
+          </Box>
 
-          <Text>
-            {drink.ingredients}
-          </Text>
 
-        </Box>
-
-        <Box flex='1'>
-          <Text>
-            {drink.description}
-          </Text>
-
-          <Text>
-            {drink.recipe}
-          </Text>
-        </Box>
-      </Flex>
+          <Heading size={'lg'} mb={2}>Instructions</Heading>
+          <Text>{drink.instructions}</Text>
+        </GridItem>
+      </Grid>
     </Layout>
   )
 }
