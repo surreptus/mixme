@@ -90,7 +90,7 @@ export default function Show ({ drink }: Props) {
   return (
     <Layout >
       <Head>
-        <title>Mixme - Home</title>
+        <title>Mixme - {drink.name}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

@@ -27,7 +27,7 @@ export default function List ({ items }: Props) {
         <Card flex='0 32%'>
           <Stack spacing={4}>
             <AspectRatio ratio={1}>
-              <Image objectFit='cover' alt={drink.name} src={drink.cover.url} boxSize='lg' />
+              <Image objectFit='cover' alt={drink.name} src={drink.cover.url} />
             </AspectRatio>
 
             <Heading size='md'>

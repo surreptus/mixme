@@ -1,6 +1,8 @@
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import { gql, useLazyQuery } from '@apollo/client';
-import { Input } from '@chakra-ui/react'
+import { Container, Text, Input } from '@chakra-ui/react'
+import Link from 'next/link'
+import styled from '@emotion/styled'
 
 const GET_RECIPES = gql`
   query($query: String!) {
@@ -14,13 +16,27 @@ const GET_RECIPES = gql`
       items {
         name,
         caption,
+        sys {
+          id
+        }
       }
     }
   }
 `
+
+const Overlay = styled.div`
+  position: fixed;
+  top: 4rem;
+  height: calc(100vh - 4rem);
+  background-color: black;
+  z-index: 100;
+  left: 0;
+  width: 100vw;
+`
+
 export default function Search () {
   const [query, setQuery] = useState('')
-  const [getRecipes] = useLazyQuery(GET_RECIPES, { variables: {
+  const [getRecipes, { loading, data }] = useLazyQuery(GET_RECIPES, { variables: {
     query
   }});
   
@@ -33,7 +49,7 @@ export default function Search () {
   }, [query])
 
   return (
-    <div>
+    <>
       <Input
         size='lg'
         variant='unstyled'
@@ -42,6 +58,22 @@ export default function Search () {
         onChange={(event: ChangeEvent<HTMLInputElement>) => setQuery(event.target.value)}
         placeholder='Start searching for a drink'
       />
-    </div>
+
+      {
+        (!loading && query) && (
+          <Overlay>
+            <Container>
+              {data && data.drinkCollection.items.map((drink: any) => (
+                <Link key={drink.sys.id} href={`/recipes/${encodeURIComponent(drink.sys.id)}`}>
+                  <Text>
+                    {drink.name}
+                  </Text>
+                </Link>
+              ))}
+            </Container>
+          </Overlay>
+        )
+      }
+    </>
   )
 }
