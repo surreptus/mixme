@@ -5,7 +5,7 @@ export default new ApolloClient({
   ssrMode: typeof window === 'undefined',
   cache: new InMemoryCache(),
   headers: {
-    'Authorization': 'Bearer 8K4htsV045PUGte1GMjM2NstYN5CZn8SyMBNZfakhDo'
+    'Authorization': `Bearer ${process.env.CONTENTFUL_API_KEY}`
   }
 });
 

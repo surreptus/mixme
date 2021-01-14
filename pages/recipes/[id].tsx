@@ -12,15 +12,8 @@ import {
   Text,
   UnorderedList,
 } from '@chakra-ui/react'
-import { gql, ApolloClient, InMemoryCache } from '@apollo/client';
-
-const client = new ApolloClient({
-  uri: 'https://graphql.contentful.com/content/v1/spaces/aldu54hpd72j',
-  cache: new InMemoryCache(),
-  headers: {
-    'Authorization': 'Bearer 8K4htsV045PUGte1GMjM2NstYN5CZn8SyMBNZfakhDo'
-  }
-});
+import { gql } from '@apollo/client';
+import client from 'utilities/apollo'
 
 interface Props {
   drink: any
