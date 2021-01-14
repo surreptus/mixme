@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Grid, GridItem } from '@chakra-ui/react'
+import { Grid, GridItem } from '@chakra-ui/react'
 
 import Search from './Search'
 

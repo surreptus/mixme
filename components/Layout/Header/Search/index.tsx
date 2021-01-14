@@ -20,7 +20,7 @@ const GET_RECIPES = gql`
 `
 export default function Search () {
   const [query, setQuery] = useState('')
-  const [getRecipes, { loading, data }] = useLazyQuery(GET_RECIPES, { variables: {
+  const [getRecipes] = useLazyQuery(GET_RECIPES, { variables: {
     query
   }});
   

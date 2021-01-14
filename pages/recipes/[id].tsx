@@ -118,7 +118,7 @@ export default function Show ({ drink }: Props) {
           <Box my={6}>
             <Heading size={'lg'} mb={2}>Ingredients</Heading>
             <UnorderedList>
-              {drink.ingredients.map(ingredient => (
+              {drink.ingredients.map((ingredient: any) => (
                 <ListItem>{ingredient}</ListItem>
               ))}
             </UnorderedList>
@@ -126,8 +126,8 @@ export default function Show ({ drink }: Props) {
 
 
           <Heading size={'lg'} mb={2}>Instructions</Heading>
-          {drink.instructions.json.content.map(node =>
-            node.content.map(paragraph =>
+          {drink.instructions.json.content.map((node: any) =>
+             node.content.map((paragraph: any) =>
               <Text>{paragraph.value}</Text>
             )
           )}
