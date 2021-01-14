@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { AspectRatio, Text, Image, Wrap, WrapItem } from '@chakra-ui/react'
+import { Text, Image, Wrap, WrapItem } from '@chakra-ui/react'
 
 interface Props {
   items: any[];
