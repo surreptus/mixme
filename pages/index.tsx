@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Header from 'components/Header'
+import Layout from 'components/Layout'
 import List from 'components/List'
 import { gql, ApolloClient, InMemoryCache } from '@apollo/client';
 
@@ -43,25 +43,21 @@ interface Props {
 
 export default function Home ({ drinks }: Props) {
   return (
-    <div>
+    <Layout >
       <Head>
         <title>Mixme - Home</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <Header />
 
       <main>
         <h1>
           Test
         </h1>
 
+        hello
+
         <List items={drinks} />
       </main>
-
-      <footer>
-        Copyright Mixme 2020
-      </footer>
-    </div>
+    </Layout>
   )
 }

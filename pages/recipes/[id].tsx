@@ -1,5 +1,7 @@
 import React from 'react'
-import { Text, Image } from '@chakra-ui/react'
+import Head from 'next/head'
+import Layout from 'components/Layout'
+import { Container, Flex, Box, AspectRatio, Text, Image } from '@chakra-ui/react'
 import { gql, ApolloClient, InMemoryCache } from '@apollo/client';
 
 const client = new ApolloClient({
@@ -74,22 +76,42 @@ export async function getStaticProps (context: any) {
 
 export default function Show ({ drink }: Props) {
   return (
-    <div>
-      <Text>
-      {drink.name}
-      </Text>
+    <Layout >
+      <Head>
+        <title>Mixme - Home</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-      <Text>
-      {drink.caption}
-      </Text>
+      <Flex>
+        <Box flex='1'>
+          <AspectRatio maxW='20rem' ratio={4 / 3}>
+            <Image src={drink.cover.url} />
+          </AspectRatio>
 
-      <Text>
-      {drink.description}
-      </Text>
+          <Text>
+            {drink.name}
+          </Text>
 
-      {drink.ingredients}
+          <Text>
+            {drink.caption}
+          </Text>
 
-      <Image src={drink.cover.url} />
-    </div>
+          <Text>
+            {drink.ingredients}
+          </Text>
+
+        </Box>
+
+        <Box flex='1'>
+          <Text>
+            {drink.description}
+          </Text>
+
+          <Text>
+            {drink.recipe}
+          </Text>
+        </Box>
+      </Flex>
+    </Layout>
   )
 }

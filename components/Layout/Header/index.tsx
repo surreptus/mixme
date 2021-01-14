@@ -1,5 +1,7 @@
 import React from 'react'
-import { Link, Input, Grid, GridItem } from '@chakra-ui/react'
+import { Link, Grid, GridItem } from '@chakra-ui/react'
+
+import Search from './Search'
 
 export default function Header () {
   return (
@@ -10,7 +12,7 @@ export default function Header () {
         </GridItem>
 
         <GridItem colSpan={3}>
-          <Input placeholder='Start searching for a drink' />
+          <Search />
         </GridItem>
 
         <GridItem>
@@ -19,7 +21,6 @@ export default function Header () {
           </Link>
         </GridItem>
       </Grid>
-      mixme
     </header>
   )
 }
