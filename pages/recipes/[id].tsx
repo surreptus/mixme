@@ -63,6 +63,9 @@ export async function getStaticProps (context: any) {
         }
         ingredients
         description
+        instructions {
+          json
+        }
       }
     }`,
     variables: {
@@ -93,12 +96,17 @@ export default function Show ({ drink }: Props) {
 
       <Grid my={5} templateColumns={"repeat(2, 1fr)"} gap={6}>
         <GridItem colSpan={1}>
-          <Box>
+          <Box position={'relative'}>
             <AspectRatio width={'100%'} ratio={4 / 3}>
               <Image objectFit={'cover'} src={drink.cover.url} />
             </AspectRatio>
-            <Box my={3}>
-              <Heading size={'2xl'} mb={2}>{drink.name}</Heading>
+            <Box
+              my={3}
+              position={'absolute'}
+              top={-12}
+              left={-4}
+            >
+              <Heading size={'3xl'} mb={1}>{drink.name}</Heading>
               <Text>{drink.caption}</Text>
             </Box>
           </Box>
@@ -107,7 +115,7 @@ export default function Show ({ drink }: Props) {
         <GridItem colSpan={1}>
           <Text>{drink.description}</Text>
 
-          <Box my={3}>
+          <Box my={6}>
             <Heading size={'lg'} mb={2}>Ingredients</Heading>
             <UnorderedList>
               {drink.ingredients.map(ingredient => (
@@ -118,7 +126,11 @@ export default function Show ({ drink }: Props) {
 
 
           <Heading size={'lg'} mb={2}>Instructions</Heading>
-          <Text>{drink.instructions}</Text>
+          {drink.instructions.json.content.map(node =>
+            node.content.map(paragraph =>
+              <Text>{paragraph.value}</Text>
+            )
+          )}
         </GridItem>
       </Grid>
     </Layout>
