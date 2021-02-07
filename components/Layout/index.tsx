@@ -12,7 +12,7 @@ export default function Layout ({ children }: Props) {
     <Grid sx={{ minHeight: '100vh' }} templateRows='8rem auto 8rem'>
       <Header />
 
-      <Container maxW='80rem'>
+      <Container>
         {children}
       </Container>
 

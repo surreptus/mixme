@@ -83,16 +83,20 @@ export default function Show ({ drink }: Props) {
   return (
     <Layout >
       <Head>
-        <title>Mixme - {drink.name}</title>
+        <title>
+          Mixme - { drink.name }
+        </title>
+
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Grid my={5} templateColumns={"repeat(2, 1fr)"} gap={6}>
+      <Grid width='100%' templateColumns={"1fr 1.61fr"}>
         <GridItem colSpan={1}>
           <Box position={'relative'}>
             <AspectRatio width={'100%'} ratio={4 / 3}>
               <Image objectFit={'cover'} src={drink.cover.url} />
             </AspectRatio>
+
             <Box
               my={3}
               position={'absolute'}
@@ -100,6 +104,7 @@ export default function Show ({ drink }: Props) {
               left={-4}
             >
               <Heading size={'3xl'} mb={1}>{drink.name}</Heading>
+
               <Text>{drink.caption}</Text>
             </Box>
           </Box>
@@ -110,9 +115,10 @@ export default function Show ({ drink }: Props) {
 
           <Box my={6}>
             <Heading size={'lg'} mb={2}>Ingredients</Heading>
+
             <UnorderedList>
               {drink.ingredients.map((ingredient: any) => (
-                <ListItem>{ingredient}</ListItem>
+                <ListItem key={ingredient}>{ingredient}</ListItem>
               ))}
             </UnorderedList>
           </Box>
@@ -121,7 +127,9 @@ export default function Show ({ drink }: Props) {
           <Heading size={'lg'} mb={2}>Instructions</Heading>
           {drink.instructions.json.content.map((node: any) =>
              node.content.map((paragraph: any) =>
-              <Text>{paragraph.value}</Text>
+              <Text key={paragraph.value}>
+                {paragraph.value}
+              </Text>
             )
           )}
         </GridItem>

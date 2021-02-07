@@ -4,7 +4,7 @@ import { ApolloProvider } from '@apollo/client';
 import theme from 'utilities/theme'
 import client from 'utilities/apollo'
 
-function MyApp({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
       <ApolloProvider client={client}>
@@ -14,4 +14,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   )
 }
 
-export default MyApp
+export default App

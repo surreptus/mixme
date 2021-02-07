@@ -2,11 +2,16 @@ import Head from 'next/head'
 import Layout from 'components/Layout'
 import List from 'components/List'
 import { gql } from '@apollo/client';
+import { useTranslation } from 'react-i18next'
 import { Heading } from '@chakra-ui/react'
 import client from 'utilities/apollo'
 
+/**
+ * return the newest drinks so we can pre-render the page
+ */
+
 export async function getStaticProps () {
-  const { data }= await client.query({
+  const { data } = await client.query({
     query: gql`query GetDrinks {
       drinkCollection(limit:20) {
         total,
@@ -36,8 +41,10 @@ interface Props {
 }
 
 export default function Home ({ drinks }: Props) {
+  const { t } = useTranslation()
+
   return (
-    <Layout >
+    <Layout>
       <Head>
         <title>Mixme - Home</title>
         <link rel="icon" href="/favicon.ico" />

@@ -8,6 +8,7 @@ export default function Footer () {
       <Flex my={2} justify={'center'}>
         <Text>mixme, a cocktail journal</Text>
       </Flex>
+
       <Flex justify={'center'}>
         <HStack spacing={3}>
           <Text>© {new Date().getFullYear()}</Text>

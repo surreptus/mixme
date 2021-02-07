@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, Grid, GridItem } from '@chakra-ui/react'
 
-import Search from './Search'
+// import Search from './Search'
 
 export default function Header () {
   return (
@@ -12,7 +12,7 @@ export default function Header () {
         </GridItem>
 
         <GridItem colSpan={3}>
-          <Search />
+          {/* <Search /> */}
         </GridItem>
 
         <GridItem />
