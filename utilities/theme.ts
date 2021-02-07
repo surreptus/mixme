@@ -8,6 +8,15 @@ export default extendTheme({
   fonts: {
     heading: 'Libre Baskerville, serif'
   },
+  components: {
+    Heading: {
+      variants: {
+        italic: {
+          fontStyle: 'italic'
+        }
+      }
+    }
+  },
   styles: {
     global: {
       '*': {
@@ -15,6 +24,7 @@ export default extendTheme({
       },
       body: {
         padding: 0,
+        backgroundColor: '#0B0B25',
         margin: 0,
         fontFamily: "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
       },

@@ -2,8 +2,8 @@ import Head from 'next/head'
 import Layout from 'components/Layout'
 import List from 'components/List'
 import { gql } from '@apollo/client';
-import { useTranslation } from 'react-i18next'
-import { Heading } from '@chakra-ui/react'
+// import { useTranslation } from 'react-i18next'
+import { Heading, Container } from '@chakra-ui/react'
 import client from 'utilities/apollo'
 
 /**
@@ -41,7 +41,7 @@ interface Props {
 }
 
 export default function Home ({ drinks }: Props) {
-  const { t } = useTranslation()
+// const { t } = useTranslation()
 
   return (
     <Layout>
@@ -50,13 +50,12 @@ export default function Home ({ drinks }: Props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <Heading>
+      <Container maxWidth='80rem'>
+        <Heading pt='12'>
           Latest Drinks
         </Heading>
-
         <List items={drinks} />
-      </main>
+      </Container>
     </Layout>
   )
 }

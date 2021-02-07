@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import { Grid, Container } from '@chakra-ui/react'
+import { Grid, GridItem } from '@chakra-ui/react'
 import Header from './Header'
 import Footer from './Footer'
 
@@ -9,12 +9,12 @@ interface Props {
 
 export default function Layout ({ children }: Props) {
   return (
-    <Grid sx={{ minHeight: '100vh' }} templateRows='8rem auto 8rem'>
+    <Grid sx={{ minHeight: '100vh' }} templateRows='auto 8rem'>
       <Header />
 
-      <Container>
+      <GridItem>
         {children}
-      </Container>
+      </GridItem>
 
       <Footer />
     </Grid>

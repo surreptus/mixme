@@ -2,7 +2,6 @@ import React from 'react'
 import Head from 'next/head'
 import Layout from 'components/Layout'
 import {
-  AspectRatio,
   Box,
   Grid,
   GridItem,
@@ -90,27 +89,31 @@ export default function Show ({ drink }: Props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Grid width='100%' templateColumns={"1fr 1.61fr"}>
-        <GridItem colSpan={1}>
-          <Box position={'relative'}>
-            <AspectRatio width={'100%'} ratio={4 / 3}>
-              <Image objectFit={'cover'} src={drink.cover.url} />
-            </AspectRatio>
-
-            <Box
-              my={3}
-              position={'absolute'}
-              top={-12}
-              left={-4}
-            >
-              <Heading size={'3xl'} mb={1}>{drink.name}</Heading>
-
-              <Text>{drink.caption}</Text>
-            </Box>
-          </Box>
+      <Grid height='100vh' width='100%' columnGap='12' templateColumns={"1fr 1.61fr"}>
+        <GridItem sx={{ overflow: 'hidden' }}>
+          <Image
+            sx={{ position: 'sticky', top: 0 }}
+            width='100%'
+            height='100%'
+            objectFit={'cover'}
+            src={drink.cover.url}
+          />
         </GridItem>
 
-        <GridItem colSpan={1}>
+        <GridItem>
+          <Heading
+            variant='italic'
+            pt='12'
+            left='-6rem'
+            sx={{ position: 'relative' }}
+            size={'3xl'}
+            mb={1}
+          >
+            {drink.name}
+          </Heading>
+
+          <Text>{drink.caption}</Text>
+
           <Text>{drink.description}</Text>
 
           <Box my={6}>
