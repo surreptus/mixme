@@ -80,7 +80,7 @@ export async function getStaticProps (context: any) {
 
 export default function Show ({ drink }: Props) {
   return (
-    <Layout >
+    <Layout>
       <Head>
         <title>
           Mixme - { drink.name }

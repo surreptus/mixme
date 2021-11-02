@@ -60,7 +60,7 @@ export default function Search () {
       />
 
       {
-        (!loading && query) && (
+        (data?.drinkCollection.items.length > 0) && (
           <Overlay>
             <Container>
               {data && data.drinkCollection.items.map((drink: any) => (

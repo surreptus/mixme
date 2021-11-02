@@ -2,10 +2,11 @@ import React from 'react'
 import { Link, Grid, GridItem } from '@chakra-ui/react'
 import styled from '@emotion/styled'
 
-// import Search from './Search'
+import Search from './Search'
 
 const AppBar = styled.header`
-position: fixed;
+  position: fixed;
+  z-index: 1;
 `
 
 export default function Header () {
@@ -17,7 +18,7 @@ export default function Header () {
         </GridItem>
 
         <GridItem colSpan={3}>
-          {/* <Search /> */}
+          <Search />
         </GridItem>
 
         <GridItem />
