@@ -8,6 +8,19 @@ body {
   margin: 0;
 }
 
+.drink-list {
+  margin: 0 auto;
+  display: grid;
+  width: 50rem;
+  grid-gap: 1rem;
+  grid-template-columns: 33% 33% 33%;
+}
+
+.drink-item {
+  background-color: #f0f0f0;
+  height: 16rem;
+}
+
 .drink-layout {
   display: flex;
   height: 100vh;
