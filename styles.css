@@ -1,4 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: whitesmoke;
-  color: purple;
+  padding: 0;
+  margin: 0;
+}
+
+.drink-layout {
+  display: flex;
+  height: 100vh;
+}
+
+.drink-layout .left {
+  flex: 0 60%;
+  object-fit: cover;
+}
+
+.drink-layout .right {
+  flex: 0 40%;
+  padding: 2rem;
 }
