@@ -19,7 +19,11 @@
 
     <main class='drink-layout'>
       <div class='left'>
-        <img src='assets/images/pisco.jpg' alt='A picture of a pisco sour. It is in a coupe glass with a head of foam' />
+        <picture>
+          <source type='image/webp' srcset='assets/images/pisco.webp'>
+          <source type='image/jpeg' srcset='assets/images/pisco.jpg'>
+          <img src='assets/images/pisco.jpg' alt='A picture of a pisco sour. It is in a coupe glass with a head of foam' />
+        </picture>
 
         <p class='drink-caption caption'>
           A Pisco Sour served up in a coupe glass with a solid head of foam, and

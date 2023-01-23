@@ -103,10 +103,13 @@ ul {
   flex-direction: column;
 }
 
-.drink-layout .left img {
+.drink-layout .left picture {
   width: 100%;
+}
+
+.drink-layout .left picture img {
   object-fit:cover;
-  height: calc(100vw - 4rem);
+  width: 100%;
 }
 
 .drink-layout .drink-caption {
@@ -136,7 +139,7 @@ ul {
     max-height: 30rem;
   }
 
-  .drink-layout .left img {
+  .drink-layout .left picture {
     object-fit: cover;
     order: 2;
     width: 100%;

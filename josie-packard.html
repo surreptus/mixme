@@ -19,7 +19,11 @@
 
     <main class='drink-layout'>
       <div class='left'>
-        <img src='assets/images/josie-packard.jpg' alt='a picture of the josie packard cocktail' />
+        <picture>
+          <source type='image/webp' srcset='assets/images/josie-packard.webp' />
+          <source type='image/jpeg' srcset='assets/images/josie-packard.jpg' />
+          <img src='assets/images/josie-packard.jpg' alt='a picture of the josie packard cocktail' />
+        </picture>
 
         <p class='drink-caption caption'>
           Josie Packard served in a rocks glass over a big ice cube.
