@@ -3,6 +3,10 @@
   --dark-gray: #333;
   --light-gray: #777;
   --bright-blue: #00f;
+
+  --font-size-body: 1.25rem;
+  --font-size-h1: 3rem;
+  --font-size-h3: 1.5rem
 }
 
 * {
@@ -11,7 +15,7 @@
 
 body {
   font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
-  font-size: 24px;
+  font-size: 16px;
   background-color: whitesmoke;
   padding: 0;
   margin: 0;
@@ -21,6 +25,10 @@ body {
   padding: 1rem;
   display: flex;
   justify-content: center;
+}
+
+.page-header__title {
+  margin: 0;
 }
 
 a {
@@ -46,12 +54,23 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 h1 {
-  font-size: 5rem;
+  font-size: var(--font-size-h1);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+}
+
+p, ul {
+  margin-bottom: 3rem;
+}
+
+p, li {
+  font-size: var(--font-size-body);
 }
 
 p {
   line-height: 1.5;
-  margin-bottom: 2rem;
 }
 
 header h1, header p {
@@ -71,6 +90,12 @@ ul {
   padding-left: 1.5rem;
 }
 
+@media screen and (min-width: 60rem) {
+  :root {
+    --font-size-h1: 4rem;
+  }
+}
+ 
 /* main page */
 
 .drink-list {
