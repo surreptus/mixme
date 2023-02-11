@@ -6,8 +6,13 @@
 
   --font-size-body: 1.25rem;
   --font-size-h1: 3rem;
-  --font-size-h3: 1.5rem
+  --font-size-h3: 1.5rem;
+
+  --foreground: #fffcfc;
+  --background: #f7f2f2;
 }
+
+/* basic styles for page and layout */
 
 * {
   box-sizing: border-box;
@@ -16,10 +21,12 @@
 body {
   font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
   font-size: 16px;
-  background-color: whitesmoke;
+  background-color: var(--background);
   padding: 0;
   margin: 0;
 }
+
+/* website header */
 
 .page-header {
   padding: 1rem;
@@ -30,6 +37,8 @@ body {
 .page-header__title {
   margin: 0;
 }
+
+/* typography styles */
 
 a {
   color: inherit;
@@ -69,6 +78,21 @@ p, li {
   font-size: var(--font-size-body);
 }
 
+ul {
+  padding-left: 1rem;
+}
+
+ul li {
+  padding-left: 0.5rem;
+}
+
+li::marker {
+  content: '⌀';
+  color: var(--light-gray);
+  font-size: 1.5rem;
+  left: -1rem;
+}
+
 p {
   line-height: 1.5;
 }
@@ -84,10 +108,6 @@ header h1, header p {
 
 .subtle {
   color: var(--light-gray);
-}
-
-ul {
-  padding-left: 1.5rem;
 }
 
 @media screen and (min-width: 60rem) {
@@ -112,6 +132,11 @@ ul {
   height: 12rem;
 }
 
+.drink-item img {
+  object-fit: cover;
+
+}
+
 .drink-item.drink-item--large {
   grid-column: span 3;
 }
@@ -120,7 +145,7 @@ ul {
   grid-column: span 2;
 }
 
-/* show page */
+/* drink page */
 
 .drink-layout {
   display: flex;
@@ -141,7 +166,11 @@ ul {
 }
 
 .drink-layout .right {
-  background-color: whitesmoke;
+  background-color: var(--background);
+}
+
+.drink__description {
+  column-count: 2;
 }
 
 @media screen and (min-width: 60rem) {
@@ -173,12 +202,14 @@ ul {
   
   .drink-layout .right {
     margin-top: 16rem;
-    transform: translateX(-4rem);
-    background: rgb(255,255,255);
-    background: linear-gradient(138deg, rgba(255,255,255,1) 0%, rgba(245,245,245,1) 32%); 
+    transform: translateX(-2rem);
+    background: var(--foreground);
+    background: linear-gradient(138deg, var(--foreground) 0%, var(--background) 32%); 
     padding: 2rem;
   }
 }
+
+/* footer */
 
 footer {
   padding: 2rem;
