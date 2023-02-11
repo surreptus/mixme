@@ -1,0 +1,185 @@
+:root {
+  --light-blue: #d7dbea;
+  --dark-gray: #333;
+  --light-gray: #777;
+  --bright-blue: #00f;
+
+  --font-size-body: 1.25rem;
+  --font-size-h1: 3rem;
+  --font-size-h3: 1.5rem
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+  font-size: 16px;
+  background-color: whitesmoke;
+  padding: 0;
+  margin: 0;
+}
+
+.page-header {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.page-header__title {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  transition: color 0.125s ease-in-out;
+}
+
+a:hover {
+  color: var(--bright-blue);
+}
+
+a.unstyled {
+  text-decoration: none;
+}
+
+a.unstyled:hover {
+  color: inherit;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+}
+
+p, ul {
+  margin-bottom: 3rem;
+}
+
+p, li {
+  font-size: var(--font-size-body);
+}
+
+p {
+  line-height: 1.5;
+}
+
+header h1, header p {
+  margin: 0;
+}
+
+.caption {
+  font-size: 1rem;
+  color: var(--dark-gray);
+}
+
+.subtle {
+  color: var(--light-gray);
+}
+
+ul {
+  padding-left: 1.5rem;
+}
+
+@media screen and (min-width: 60rem) {
+  :root {
+    --font-size-h1: 4rem;
+  }
+}
+ 
+/* main page */
+
+.drink-list {
+  display: grid;
+  width: 60vw;
+  padding: 2rem;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.drink-item {
+  background-color: var(--light-blue);
+  padding: 1rem;
+  height: 12rem;
+}
+
+.drink-item.drink-item--large {
+  grid-column: span 3;
+}
+
+.drink-item.drink-item--medium {
+  grid-column: span 2;
+}
+
+/* show page */
+
+.drink-layout {
+  display: flex;
+  padding: 2rem;
+  flex-direction: column;
+}
+
+.drink-layout .left picture {
+  width: 100%;
+}
+
+.drink-layout .left picture img {
+  object-fit:cover;
+  width: 100%;
+}
+
+.drink-layout .drink-caption {
+}
+
+.drink-layout .right {
+  background-color: whitesmoke;
+}
+
+@media screen and (min-width: 60rem) {
+  .drink-layout {
+    flex-direction: row;
+    max-width: 80rem;
+  }
+
+  .drink-layout .left {
+    margin-top: 4rem;
+    display: flex;
+    flex: 0 0 40rem;
+    height: 40rem;
+  }
+
+  .drink-caption {
+    order: 1;
+    padding-right: 0.5rem;
+    writing-mode: vertical-rl;
+    max-height: 30rem;
+  }
+
+  .drink-layout .left picture {
+    object-fit: cover;
+    order: 2;
+    width: 100%;
+    height: 40rem;
+  }
+  
+  .drink-layout .right {
+    margin-top: 16rem;
+    transform: translateX(-4rem);
+    background: rgb(255,255,255);
+    background: linear-gradient(138deg, rgba(255,255,255,1) 0%, rgba(245,245,245,1) 32%); 
+    padding: 2rem;
+  }
+}
+
+footer {
+  padding: 2rem;
+}
