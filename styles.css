@@ -1,15 +1,20 @@
 :root {
-  --light-blue: #d7dbea;
-  --dark-gray: #333;
-  --light-gray: #777;
-  --bright-blue: #00f;
+  --color-light-blue: #d7dbea;
+  --color-dark-gray: #111;
+  --color-light-gray: #777;
+  --color-highlight-blue: #00f;
 
   --font-size-body: 1.25rem;
-  --font-size-h1: 3rem;
+  --font-size-h1: 4rem;
+  --font-size-h2: 2rem;
   --font-size-h3: 1.5rem;
 
   --foreground: #fffcfc;
   --background: #f7f2f2;
+
+  --border-radius-sm: 3px;
+
+  --max-width-desktop: 90rem;
 }
 
 /* basic styles for page and layout */
@@ -46,7 +51,7 @@ a {
 }
 
 a:hover {
-  color: var(--bright-blue);
+  color: var(--color-highlight-blue);
 }
 
 a.unstyled {
@@ -66,12 +71,23 @@ h1 {
   font-size: var(--font-size-h1);
 }
 
+h1 + p::first-letter {
+  font-size: var(--font-size-h1);
+  margin-top: 0.5rem;
+  margin-right: 0.25rem;
+  float: left;
+}
+
 h3 {
   font-size: var(--font-size-h3);
 }
 
 p, ul {
   margin-bottom: 3rem;
+}
+
+p {
+  line-height: 1.5;
 }
 
 p, li {
@@ -88,7 +104,7 @@ ul li {
 
 li::marker {
   content: '⌀';
-  color: var(--light-gray);
+  color: var(--color-light-gray);
   font-size: 1.5rem;
   left: -1rem;
 }
@@ -103,11 +119,11 @@ header h1, header p {
 
 .caption {
   font-size: 1rem;
-  color: var(--dark-gray);
+  color: var(--color-dark-gray);
 }
 
 .subtle {
-  color: var(--light-gray);
+  color: var(--color-light-gray);
 }
 
 @media screen and (min-width: 60rem) {
@@ -115,8 +131,29 @@ header h1, header p {
     --font-size-h1: 4rem;
   }
 }
- 
+
 /* main page */
+
+.home__hero {
+  padding: 2rem;
+  max-width: 60rem;
+  width: 100%;
+}
+
+.home__hero picture {
+  width: 100%;
+  height: auto;
+}
+
+.home__hero picture img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.home__hero p {
+  column-count: 3;
+}
 
 .drink-list {
   display: grid;
@@ -127,7 +164,7 @@ header h1, header p {
 }
 
 .drink-item {
-  background-color: var(--light-blue);
+  background-color: var(--color-light-blue);
   padding: 1rem;
   height: 12rem;
 }
@@ -169,14 +206,10 @@ header h1, header p {
   background-color: var(--background);
 }
 
-.drink__description {
-  column-count: 2;
-}
-
 @media screen and (min-width: 60rem) {
   .drink-layout {
     flex-direction: row;
-    max-width: 80rem;
+    max-width: var(--max-width-desktop);
   }
 
   .drink-layout .left {
@@ -213,4 +246,18 @@ header h1, header p {
 
 footer {
   padding: 2rem;
+  background-color: var(--color-dark-gray);
+  color: white;
+}
+
+footer .footer__content {
+  max-width: 40rem;
+}
+
+footer a:hover {
+color: var(--color-light-gray);
+}
+
+footer .footer__links a + a {
+  padding-left: 1rem;
 }
